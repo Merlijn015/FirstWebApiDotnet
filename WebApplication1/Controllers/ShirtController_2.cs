@@ -24,9 +24,9 @@ namespace FirstWebApi.Controllers
 
         [HttpGet("{id}")]
         [Shirt_ValidateShirtFilter]
-        public IActionResult GetShirtsbyID(int id)
+        public IActionResult GetShirtsbyId(int id)
         {
-            return Ok(ShirtRepository.GetShirtsbyID(id));
+            return Ok(ShirtRepository.GetShirtsbyId(id));
         }
 
 
@@ -37,9 +37,18 @@ namespace FirstWebApi.Controllers
         // }
 
         [HttpPost("body")]
-        public string CreateShirtsbody([FromBody]Shirt shirt) //put brakepoint for test
+        public IActionResult CreateShirtsbody([FromBody]Shirt shirt) //put brakepoint for test
         {
-            return $"Create a shirt: {shirt}";
+             if (shirt == null) return BadRequest();
+
+             var existingShirt = ShirtRepository.GetShirtByProperties(shirt.Brand, shirt.Gender, shirt.Color, shirt.Size);
+             if (existingShirt != null) return BadRequest();
+
+             ShirtRepository.AddShirt(shirt);
+
+
+            return CreatedAtAction(nameof(GetShirtsbyId),
+                new { id = shirt.ShirtId}, shirt);
         }
 
         [HttpPost("form")]

@@ -13,7 +13,7 @@ namespace FirstWebApi.Models
         public string? Color {get; set; }
         //model validation make own attribute
         [Shirt_EnsureCorrectSizingAttribure]
-        public int Size {get; set; }
+        public int? Size {get; set; }
         [Required]//gender is required
         public string? Gender {get; set; }
         public double Price {get; set; }
