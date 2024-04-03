@@ -1,8 +1,7 @@
 # FirstWebApiDotnet
 
 This repo is my first experince with dotnet and with webdev.
-I follow the course **Complete Guide to Web API in .NET 8: Master API Development
-** of ***Frank Liu***.
+I follow the course **Complete Guide to Web API in .NET 8: Master API Development** of ***Frank Liu***.
 
 ## Head 2; content
 This project containts the following learnings:
