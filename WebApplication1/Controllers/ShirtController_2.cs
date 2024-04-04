@@ -23,18 +23,11 @@ namespace FirstWebApi.Controllers
         // }
 
         [HttpGet("{id}")]
-        [Shirt_ValidateShirtFilter]
+        [Shirt_ValidateShirtIdFilter]
         public IActionResult GetShirtsbyId(int id)
         {
             return Ok(ShirtRepository.GetShirtsbyId(id));
         }
-
-
-        // [HttpGet("route/{id}/{color}")]
-        // public string GetShirtsRoute(int id, [FromRoute] string color) // model binding
-        // {
-        //     return $"Reading the shirt with id: {id} \n with color: {color}";
-        // }
 
         [HttpPost("body")]
         [Shirt_ValidateCreateShirtFilter]
@@ -54,9 +47,21 @@ namespace FirstWebApi.Controllers
         }
 
         [HttpPut("{id}")]
-        public string UpdateShirts(int id)
+        [Shirt_ValidateShirtIdFilter]
+        [Shirt_ValidateUpdateShirtFilter]
+        public IActionResult UpdateShirts(int id,Shirt shirt)
         {
-            return $"Update the shirt with id: {id}";
+            try
+            {
+                ShirtRepository.UpdateShirt(shirt);
+            }
+            catch
+            {
+                if (!ShirtRepository.ShirtExists(id))
+                    return NotFound();
+                throw;
+            }
+            return NoContent();
         }
 
         [HttpDelete("{id}")]

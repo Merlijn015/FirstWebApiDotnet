@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace FirstWebApi.Filters  
 {
-    public class Shirt_ValidateShirtFilterAttribute : ActionFilterAttribute
+    public class Shirt_ValidateShirtIdFilterAttribute : ActionFilterAttribute
     {
         public override void OnActionExecuting(ActionExecutingContext context)
         {
