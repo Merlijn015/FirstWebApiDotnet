@@ -37,18 +37,14 @@ namespace FirstWebApi.Controllers
         // }
 
         [HttpPost("body")]
+        [Shirt_ValidateCreateShirtFilter]
         public IActionResult CreateShirtsbody([FromBody]Shirt shirt) //put brakepoint for test
         {
-             if (shirt == null) return BadRequest();
-
-             var existingShirt = ShirtRepository.GetShirtByProperties(shirt.Brand, shirt.Gender, shirt.Color, shirt.Size);
-             if (existingShirt != null) return BadRequest();
-
-             ShirtRepository.AddShirt(shirt);
-
-
+            ShirtRepository.AddShirt(shirt);
+            
             return CreatedAtAction(nameof(GetShirtsbyId),
-                new { id = shirt.ShirtId}, shirt);
+                new { id = shirt.ShirtId}, 
+                shirt);
         }
 
         [HttpPost("form")]
