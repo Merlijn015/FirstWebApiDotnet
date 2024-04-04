@@ -59,9 +59,13 @@ namespace FirstWebApi.Controllers
         }
 
         [HttpDelete("{id}")]
-        public string DeleteShirts(int id)
+        [Shirt_ValidateShirtIdFilter]
+        public IActionResult DeleteShirts(int id)
         {
-            return $"Delete the shirt with id: {id}";
+            var shirt = ShirtRepository.GetShirtsbyId(id);
+            ShirtRepository.DeleteShirt(id);
+
+            return Ok(shirt);
         }
     }
 }
