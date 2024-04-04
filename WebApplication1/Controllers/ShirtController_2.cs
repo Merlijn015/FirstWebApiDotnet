@@ -1,4 +1,5 @@
-using FirstWebApi.Filters;
+using FirstWebApi.Filters.ExceptionFilters;
+using FirstWebApi.Filters.ActionFilters;
 using FirstWebApi.Models;
 using FirstWebApi.Models.Repositories;
 using Microsoft.AspNetCore.Mvc;
@@ -49,18 +50,11 @@ namespace FirstWebApi.Controllers
         [HttpPut("{id}")]
         [Shirt_ValidateShirtIdFilter]
         [Shirt_ValidateUpdateShirtFilter]
+        [Shirt_HandleUpdateExeptionsFilter]
         public IActionResult UpdateShirts(int id,Shirt shirt)
         {
-            try
-            {
-                ShirtRepository.UpdateShirt(shirt);
-            }
-            catch
-            {
-                if (!ShirtRepository.ShirtExists(id))
-                    return NotFound();
-                throw;
-            }
+            ShirtRepository.UpdateShirt(shirt);
+            
             return NoContent();
         }
 

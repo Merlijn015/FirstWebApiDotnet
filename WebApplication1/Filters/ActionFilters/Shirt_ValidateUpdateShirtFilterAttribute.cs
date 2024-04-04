@@ -2,7 +2,7 @@ using FirstWebApi.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace FirstWebApi.Filters
+namespace FirstWebApi.Filters.ActionFilters
 {
     public class Shirt_ValidateUpdateShirtFilterAttribute: ActionFilterAttribute
     {
