@@ -59,5 +59,14 @@ namespace FirstWebApi.Models.Repositories
             shirtToUpdate.Gender =  shirt.Gender;
 
         }
+
+        public static void DeleteShirt(int id)
+        {
+            var shirt = GetShirtsbyId(id);
+            if (shirt != null)
+            {
+                shirts.Remove(shirt);
+            } 
+        }
     }
 }
