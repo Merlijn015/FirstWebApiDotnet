@@ -164,3 +164,8 @@
 /home/wizzy/learn/FirstWebApiDotnet/WebApplication1/obj/Debug/net8.0/WebApplication1.pdb
 /home/wizzy/learn/FirstWebApiDotnet/WebApplication1/obj/Debug/net8.0/WebApplication1.genruntimeconfig.cache
 /home/wizzy/learn/FirstWebApiDotnet/WebApplication1/obj/Debug/net8.0/ref/WebApplication1.dll
+/home/wizzy/learn/FirstWebApiDotnet/WebApplication1/bin/Debug/net8.0/Microsoft.IdentityModel.Abstractions.dll
+/home/wizzy/learn/FirstWebApiDotnet/WebApplication1/bin/Debug/net8.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/home/wizzy/learn/FirstWebApiDotnet/WebApplication1/bin/Debug/net8.0/Microsoft.IdentityModel.Logging.dll
+/home/wizzy/learn/FirstWebApiDotnet/WebApplication1/bin/Debug/net8.0/Microsoft.IdentityModel.Tokens.dll
+/home/wizzy/learn/FirstWebApiDotnet/WebApplication1/bin/Debug/net8.0/System.IdentityModel.Tokens.Jwt.dll

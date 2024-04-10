@@ -9,7 +9,8 @@ namespace FirstWebApi.Authority
                 ApplicationId = 1,
                 ApplicationName = "MVCWebApp",
                 ClientId = "974765d5-9567-4ff9-8d0f-426865bc3f16",
-                Secret = "4bb51cf9-3276-4302-8999-04e9752bc4b8"
+                Secret = "4bb51cf9-3276-4302-8999-04e9752bc4b8",
+                Scopes = "read,write"
             }
         };
 
