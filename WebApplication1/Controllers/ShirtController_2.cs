@@ -2,6 +2,7 @@ using FirstWebApi.Filters.ExceptionFilters;
 using FirstWebApi.Filters.ActionFilters;
 using FirstWebApi.Models;
 using FirstWebApi.Models.Repositories;
+using FirstWebApi.Filters.AuthFilters;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -9,6 +10,7 @@ namespace FirstWebApi.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [JwtTokenAuthFilter]
     public class ShirtController_2:ControllerBase
     {       
         [HttpGet]

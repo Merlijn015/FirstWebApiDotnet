@@ -43,6 +43,41 @@ namespace FirstWebApi.Authority
             return new JwtSecurityTokenHandler().WriteToken(jwt);
         }
 
+        public static bool VerifyToken(string token, string strSecrectKey)
+        {
+            if (string.IsNullOrWhiteSpace(token)) return false;
+
+            var secretKey = Encoding.ASCII.GetBytes(strSecrectKey);
+
+            SecurityToken securityToken;
+
+            try{
+                var tokenHandeler = new JwtSecurityTokenHandler();
+                tokenHandeler.ValidateToken(token, new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(secretKey),
+                    ValidateLifetime = true,
+                    ValidateAudience = false,
+                    ValidateIssuer = false,
+                    ClockSkew = TimeSpan.Zero
+                },
+                out securityToken
+                );
+            }
+            catch(SecurityTokenException)
+            {
+                return false;
+            }
+            catch
+            {
+                throw;
+            }
+
+            return securityToken != null;
+
+        }
+
     }
     
 }
